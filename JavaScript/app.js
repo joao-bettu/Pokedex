@@ -1,1 +1,1 @@
-console.log('Happy developing ✨')
+const ApiUrl = "https://pokeapi.co/api/v2/"

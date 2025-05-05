@@ -1,13 +1,63 @@
 body {
     background-color: crimson;
+    font-family: sans-serif;
 }
 .container {
     display: flex;
 }
 .team {
     background-color: cyan;
+    width: 150px;
+    height: 940px;
+    border-radius: 20px;
+    margin-left: 10px;
+    margin-right: 50px;
+    text-align: center;
+}
+.pokedex {
+    display: flex;
+    flex-direction: column;
+    background-color: cyan;
+    width: 700px;
+    height: 940px;
+    border-radius: 20px;
+    margin-right: auto;
+    margin-left: auto;
+}
+.members {
+    background-color: white;
+    border-radius: 50px;
+    width: 100px;
+    height: 100px;
+    margin-right: auto;
+    margin-left: auto;
+    margin-top: 40px;
 }
 .infos {
-    display: flex;
-    background-color: cyan;
+    margin-top: 10px;
+    margin-left: 10px;
+    margin-bottom: 50px;
+}
+#title {
+    margin-left: auto;
+    margin-right: auto;
+}
+.table {
+    border: 1px solid black;
+    margin-left: auto;
+    margin-right:auto;
+}
+.table-content {
+    border: 1px solid black;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+.image {
+    background-color: white;
+    border-radius: 50%;
+    width: 200px;
+    height: 200px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 40px;
 }
