@@ -1,0 +1,6 @@
+# Ignored Directories
+.idea
+
+# Ignored Files
+/shelf/
+/package.json

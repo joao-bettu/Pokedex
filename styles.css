@@ -1,0 +1,13 @@
+body {
+    background-color: crimson;
+}
+.container {
+    display: flex;
+}
+.team {
+    background-color: cyan;
+}
+.infos {
+    display: flex;
+    background-color: cyan;
+}
