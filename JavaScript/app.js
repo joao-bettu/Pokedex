@@ -36,7 +36,7 @@ radios.forEach((radio) => {
             }
 
             if (typeof name === "string") {
-                if (name != "") {
+                if (name !== "") {
                     fetch(`${ApiUrl}pokemon/${name}`)
                         .then(res => res.json())
                         .then(data => {
