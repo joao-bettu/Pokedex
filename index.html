@@ -20,6 +20,24 @@
         <div class="pokedex">
             <h1 id="title">Pokedéx</h1>
             <div class="infos">
+                <form class="inputs">
+                    <input type="radio" id="pokedex-number" name="radio" value="poke-id">
+                    <label for="pokedex-number">ID</label>
+
+                    <input type="radio" id="pokedex-name" name="radio" value="poke-name">
+                    <label for="pokedex-name">Nome</label>
+
+                    <div>
+                        <section class="hidden" id="section-id">
+                            <input type="text" placeholder="ID" id="pokedex-id">
+                        </section>
+
+                        <section class="hidden" id="section-name">
+                            <input type="text" placeholder="Nome" id="pokemon-name">
+                        </section>
+                    </div>
+                </form>
+
                 <table class="table">
                     <thead>
                         <tr>
