@@ -19,7 +19,7 @@ radios.forEach((radio) => {
                 }
             }
         }
-        const getPokeInfo = (id, name) => {
+        const getPokeByID = (id) => {
             if (typeof id === "number") {
                 if (id >= 1 && id <= 1025) {
                     fetch(`${ApiUrl}pokemon/${id}`)
@@ -27,14 +27,15 @@ radios.forEach((radio) => {
                         .then(data => {
                             console.log(data);
                         })
-                        .catch(error => console.log(error));
+                        .catch(error => console.log("Erro:" + error));
                 } else {
                     console.log("Invalid ID!");
                 }
             } else {
                 console.log("ID is not a number!");
             }
-
+        }
+        const getPokeByName = (name) => {
             if (typeof name === "string") {
                 if (name !== "") {
                     fetch(`${ApiUrl}pokemon/${name}`)
@@ -42,12 +43,12 @@ radios.forEach((radio) => {
                         .then(data => {
                             console.log(data);
                         })
-                        .catch(error => console.log(error));
+                        .catch(error => console.log("Erro:" + error));
                 } else {
                     console.log("Invalid Name!");
                 }
             } else {
-            console.log("Name is not a string!");
+                console.log("Name is not a string!");
             }
         }
 
