@@ -52,6 +52,8 @@ radios.forEach((radio) => {
             }
         }
 
+        console.log(event.target);
+
         switch (value){
             case "poke-id":
                 showAndHide(0, sections);
