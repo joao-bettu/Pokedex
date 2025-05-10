@@ -19,37 +19,67 @@ radios.forEach((radio) => {
                 }
             }
         }
-        const getPokeByID = (id) => {
-            if (typeof id === "number") {
-                if (id >= 1 && id <= 1025) {
-                    fetch(`${ApiUrl}pokemon/${id}`)
-                        .then(res => res.json())
-                        .then(data => {
-                            console.log(data);
-                        })
-                        .catch(error => console.log("Erro:" + error));
-                } else {
-                    console.log("Invalid ID!");
-                }
-            } else {
-                console.log("ID is not a number!");
-            }
-        }
-        const getPokeByName = (name) => {
-            if (typeof name === "string") {
-                if (name !== "") {
-                    fetch(`${ApiUrl}pokemon/${name}`)
-                        .then(res => res.json())
-                        .then(data => {
-                            console.log(data);
-                        })
-                        .catch(error => console.log("Erro:" + error));
-                } else {
-                    console.log("Invalid Name!");
-                }
-            } else {
-                console.log("Name is not a string!");
-            }
+        // const getPokeByID = (id) => {
+        //     if (typeof id === "number") {
+        //         if (id >= 1 && id <= 1025) {
+        //             fetch(`${ApiUrl}pokemon/${id}`)
+        //                 .then(res => res.json())
+        //                 .then(data => {
+        //                     console.log(data);
+        //                 })
+        //                 .catch(error => console.log("Erro:" + error));
+        //         } else {
+        //             console.log("Invalid ID!");
+        //         }
+        //     } else {
+        //         console.log("ID is not a number!");
+        //     }
+        // }
+        const getPokeByID = id => {
+            return new Promise((resolve, reject) => {
+                setTimeout(() => {
+                    console.log("Getting pokemon by ID!");
+                    resolve(id,
+                        fetch(`${ApiUrl}/${id}`)
+                            .then(response => response.json())
+                            .then(data => {
+                                return data;
+                            })
+                            .catch(error => console.log(error))
+                    )
+                }, 1500);
+            })
+        };
+        // const getPokeByName = (name) => {
+        //     if (typeof name === "string") {
+        //         if (name !== "") {
+        //             fetch(`${ApiUrl}pokemon/${name}`)
+        //                 .then(res => res.json())
+        //                 .then(data => {
+        //                     console.log(data);
+        //                 })
+        //                 .catch(error => console.log("Erro:" + error));
+        //         } else {
+        //             console.log("Invalid Name!");
+        //         }
+        //     } else {
+        //         console.log("Name is not a string!");
+        //     }
+        // };
+        const getPokeByName = name => {
+            return new Promise((resolve, reject) => {
+                setTimeout(() => {
+                    console.log("Getting pokemon by name!");
+                    resolve(name,
+                        fetch(`${ApiUrl}/${name}`)
+                            .then(response => response.json())
+                            .then(data => {
+                                return data;
+                            })
+                            .catch(error => console.log(error))
+                    )
+                }, 2000);
+            })
         }
 
         console.log(event.target);
