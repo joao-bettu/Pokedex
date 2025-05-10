@@ -38,6 +38,7 @@ radios.forEach((radio) => {
                         console.log("Erro:", error);
                     }
                 };
+
                 const searchId = document.getElementById("search-by-id");
                 searchId.addEventListener("click", event => {
                     event.preventDefault();
@@ -65,6 +66,7 @@ radios.forEach((radio) => {
                         console.log(error);
                     }
                 };
+
                 const searchName = document.getElementById("search-by-name");
                 searchName.addEventListener("click", event => {
                     event.preventDefault();
@@ -93,6 +95,7 @@ radios.forEach((radio) => {
                         console.log(error);
                     }
                 };
+
                 randomPokemon()
                     .then(response => {
                         console.log(response);
