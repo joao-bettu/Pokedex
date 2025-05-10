@@ -1,6 +1,7 @@
 # Ignored Directories
 .idea
 node_modules
+Images
 
 # Ignored Files
 /shelf/

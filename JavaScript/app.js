@@ -28,9 +28,7 @@ radios.forEach((radio) => {
             }
             document.getElementById("height").textContent = pokemonInfo.height;
             document.getElementById("weight").textContent = pokemonInfo.weight;
-            const image = document.getElementById("poke-image");
-
-            image.src = pokemonInfo.sprites.front_default;
+            document.getElementById("poke-image").src = pokemonInfo.sprites.front_default;
         };
 
         console.log(event.target);
