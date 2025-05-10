@@ -1,4 +1,3 @@
-const axios = require("axios");
 const ApiUrl = "https://pokeapi.co/api/v2/";
 // https://pokeapi.co/api/v2/type/ --> Para buscar dados de tipos
 // https://pokeapi.co/api/v2/pokemon/ --> Para buscar dados de pokemóns
@@ -20,71 +19,45 @@ radios.forEach((radio) => {
                 }
             }
         }
-        // const getPokeByID = (id) => {
-        //     if (typeof id === "number") {
-        //         if (id >= 1 && id <= 1025) {
-        //             fetch(`${ApiUrl}pokemon/${id}`)
-        //                 .then(res => res.json())
-        //                 .then(data => {
-        //                     console.log(data);
-        //                 })
-        //                 .catch(error => console.log("Erro:" + error));
-        //         } else {
-        //             console.log("Invalid ID!");
-        //         }
-        //     } else {
-        //         console.log("ID is not a number!");
-        //     }
-        // }
+        const getPokeByID = id => {
+            return new Promise((resolve, reject) => {
+                setTimeout(() => {
+                    console.log("Getting pokemon by ID!");
+                    resolve({pokemon:
+                            fetch(`${ApiUrl}pokemon/${id}`)
+                                .then(response => response.json())
+                                .then(data => {
+                                    return data;
+                                })
+                                .catch(error => console.log(error))
+                    })
+                }, 1500);
+            })
+        };
 
-        // const getPokeByID = id => {
-        //     return new Promise((resolve, reject) => {
-        //         setTimeout(() => {
-        //             console.log("Getting pokemon by ID!");
-        //             resolve({pokemon:
-        //                     fetch(`${ApiUrl}pokemon/${id}`)
-        //                         .then(response => response.json())
-        //                         .then(data => {
-        //                             return data;
-        //                         })
-        //                         .catch(error => console.log(error))
-        //             })
-        //         }, 1500);
-        //     })
-        // };
-
-        // const getPokeByName = (name) => {
-        //     if (typeof name === "string") {
-        //         if (name !== "") {
-        //             fetch(`${ApiUrl}pokemon/${name}`)
-        //                 .then(res => res.json())
-        //                 .then(data => {
-        //                     console.log(data);
-        //                 })
-        //                 .catch(error => console.log("Erro:" + error));
-        //         } else {
-        //             console.log("Invalid Name!");
-        //         }
-        //     } else {
-        //         console.log("Name is not a string!");
-        //     }
-        // };
-
-        // const getPokeByName = name => {
-        //     return new Promise((resolve, reject) => {
-        //         setTimeout(() => {
-        //             console.log("Getting pokemon by name!");
-        //             resolve({pokemon:
-        //                     fetch(`${ApiUrl}pokemon/${name}`)
-        //                         .then(response => response.json())
-        //                         .then(data => {
-        //                             return data;
-        //                         })
-        //                         .catch(error => console.log(error))
-        //             })
-        //         }, 2000);
-        //     })
-        // }
+        const getPokeByName = name => {
+            return new Promise((resolve, reject) => {
+                setTimeout(() => {
+                    console.log("Getting pokemon by name!");
+                    resolve({pokemon:
+                            fetch(`${ApiUrl}pokemon/${name}`)
+                                .then(response => response.json())
+                                .then(data => {
+                                    return {
+                                        id: data.id,
+                                        name: data.name,
+                                        types: data.types,
+                                        height: data.height,
+                                        weight: data.weight,
+                                        region: data.region,
+                                        sprite: data.images
+                                    };
+                                })
+                                .catch(error => console.log(error))
+                    })
+                }, 2000);
+            })
+        }
 
         console.log(event.target);
 
@@ -98,26 +71,16 @@ radios.forEach((radio) => {
             case "radom-pokemon":
                 showAndHide(-1, sections);
                 const randomPokemon = async () => {
-                    // try {
-                    //     const randomPokemon = randomId(1, 1025);
-                    //     console.log(randomPokemon);
-                    //     const pokemonData = await getPokeByID(randomPokemon);
-                    //     console.log(pokemonData);
-                    //     console.log(pokemonData.pokemon.result);
-                    // } catch (error) {
-                    //     console.log(error);
-                    // }
                     try {
-                        const randomPokemonId = randomId(1, 1025);
-                        console.log(randomPokemonId);
-
-                        const { data } = await axios.get(`${ApiUrl}pokemon/${randomPokemonId}`);
-
-                        console.log(data);
+                        const randomPokemon = randomId(1, 1025);
+                        console.log(randomPokemon);
+                        const pokemonData = await getPokeByID(randomPokemon);
+                        console.log(pokemonData);
+                        console.log(pokemonData.name);
                     } catch (error) {
                         console.log(error);
                     }
-                }
+                };
                 randomPokemon();
                 break;
             default:
