@@ -45,6 +45,7 @@ radios.forEach((radio) => {
                     const inputId = document.getElementById("pokedex-id");
                     const pokemonId = parseInt(inputId.value);
                     console.log(pokemonId);
+
                     getPokeById(pokemonId)
                         .then(response => {
                             console.log(response)
@@ -73,6 +74,7 @@ radios.forEach((radio) => {
                     const inputName = document.getElementById("pokemon-name");
                     const pokemonName = inputName.value;
                     console.log(pokemonName);
+
                     getPokeByName(pokemonName)
                         .then(response => {
                             console.log(response);

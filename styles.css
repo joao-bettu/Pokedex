@@ -6,13 +6,24 @@ body {
     display: flex;
 }
 .team {
-    background-color: cyan;
-    width: 150px;
-    height: 940px;
-    border-radius: 20px;
-    margin-left: 10px;
-    margin-right: 50px;
+    margin-left: auto;
+    margin-right: auto;
     text-align: center;
+}
+.members {
+    background-color: white;
+    border-radius: 75px;
+    width: 150px;
+    height: 150px;
+    margin: 10px;
+}
+.first-half {
+    display: flex;
+    flex-direction: row;
+}
+.second-half {
+    display: flex;
+    flex-direction: row;
 }
 .pokedex {
     display: flex;
@@ -23,15 +34,6 @@ body {
     border-radius: 20px;
     margin-right: auto;
     margin-left: auto;
-}
-.members {
-    background-color: white;
-    border-radius: 50px;
-    width: 100px;
-    height: 100px;
-    margin-right: auto;
-    margin-left: auto;
-    margin-top: 40px;
 }
 .infos {
     margin-top: 10px;
@@ -70,4 +72,10 @@ body {
 .hidden {
     display: none;
     margin: 10px;
+}
+#add-to-team {
+    margin-left: auto;
+    margin-right: auto;
+    height: 20px;
+    width: 200px;
 }
