@@ -28,17 +28,15 @@ radios.forEach((radio) => {
                 const getPokeById = async (id) => {
                     try {
                         console.log("Pokemon ID: ", id);
-                        const pokemonData = await fetch(`${ApiUrl}pokemon/${id}`)
+                        return await fetch(`${ApiUrl}pokemon/${id}`)
                             .then(response => response.json())
                             .then(data => {
                                 return data;
                             })
                             .catch(error => console.log(error));
-                        console.log(pokemonData);
                     } catch (error) {
                         console.log("Erro:", error);
                     }
-                    return "Pokemon selected using ID!";
                 };
                 const searchId = document.getElementById("search-by-id");
                 searchId.addEventListener("click", event => {
@@ -46,7 +44,10 @@ radios.forEach((radio) => {
                     const inputId = document.getElementById("pokedex-id");
                     const pokemonId = parseInt(inputId.value);
                     console.log(pokemonId);
-                    getPokeById(pokemonId).then(r => console.log(r));
+                    getPokeById(pokemonId)
+                        .then(response => {
+                            console.log(response)
+                        });
                 })
                 break;
             case "poke-name":
@@ -54,17 +55,15 @@ radios.forEach((radio) => {
                 const getPokeByName = async (name) => {
                     try {
                         console.log("Pokemon name: ", name);
-                        const pokemonData = await fetch(`${ApiUrl}pokemon/${name}`)
+                        return await fetch(`${ApiUrl}pokemon/${name}`)
                             .then(response => response.json())
                             .then(data => {
                                 return data;
                             })
-                            .catch(error => console.log(error))
-                        console.log(pokemonData);
+                            .catch(error => console.log(error));
                     } catch (error){
                         console.log(error);
                     }
-                    return "Pokemon selected using name!";
                 };
                 const searchName = document.getElementById("search-by-name");
                 searchName.addEventListener("click", event => {
@@ -72,7 +71,10 @@ radios.forEach((radio) => {
                     const inputName = document.getElementById("pokemon-name");
                     const pokemonName = inputName.value;
                     console.log(pokemonName);
-                    getPokeByName(pokemonName).then(r => console.log(r));
+                    getPokeByName(pokemonName)
+                        .then(response => {
+                            console.log(response);
+                        })
                 })
                 break;
             case "radom-pokemon":
@@ -81,19 +83,20 @@ radios.forEach((radio) => {
                     try {
                         const randomPokemon = randomId(1, 1025);
                         console.log("Pokemon ID: ", randomPokemon);
-                        const pokemonData = await fetch(`${ApiUrl}pokemon/${randomPokemon}`)
+                        return await fetch(`${ApiUrl}pokemon/${randomPokemon}`)
                             .then(response => response.json())
                             .then(data => {
                                 return data;
                             })
                             .catch(error => console.log("Error: ", error));
-                        console.log(pokemonData);
                     } catch (error) {
                         console.log(error);
                     }
-                    return "Random pokemon selected!";
                 };
-                randomPokemon().then(r => console.log(r));
+                randomPokemon()
+                    .then(response => {
+                        console.log(response);
+                    });
                 break;
             default:
                 console.log(value);
