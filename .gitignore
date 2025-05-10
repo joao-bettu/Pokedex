@@ -1,6 +1,8 @@
 # Ignored Directories
 .idea
+node_modules
 
 # Ignored Files
 /shelf/
 /package.json
+/package-lock.json
