@@ -41,7 +41,6 @@ radios.forEach((radio) => {
                     return "Pokemon selected using ID!";
                 };
                 const searchId = document.getElementById("search-by-id");
-                const inputId = document.getElementById("pokedex-id");
                 searchId.addEventListener("click", event => {
                     event.preventDefault();
                     const inputId = document.getElementById("pokedex-id");
