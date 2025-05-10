@@ -19,69 +19,82 @@ radios.forEach((radio) => {
                 }
             }
         }
-        const getPokeByID = id => {
-            return new Promise((resolve, reject) => {
-                setTimeout(() => {
-                    console.log("Getting pokemon by ID!");
-                    resolve({pokemon:
-                            fetch(`${ApiUrl}pokemon/${id}`)
-                                .then(response => response.json())
-                                .then(data => {
-                                    return data;
-                                })
-                                .catch(error => console.log(error))
-                    })
-                }, 1500);
-            })
-        };
-
-        const getPokeByName = name => {
-            return new Promise((resolve, reject) => {
-                setTimeout(() => {
-                    console.log("Getting pokemon by name!");
-                    resolve({pokemon:
-                            fetch(`${ApiUrl}pokemon/${name}`)
-                                .then(response => response.json())
-                                .then(data => {
-                                    return {
-                                        id: data.id,
-                                        name: data.name,
-                                        types: data.types,
-                                        height: data.height,
-                                        weight: data.weight,
-                                        region: data.region,
-                                        sprite: data.images
-                                    };
-                                })
-                                .catch(error => console.log(error))
-                    })
-                }, 2000);
-            })
-        }
 
         console.log(event.target);
 
         switch (value){
             case "poke-id":
                 showAndHide(0, sections);
+                const getPokeById = async (id) => {
+                    try {
+                        console.log("Pokemon ID: ", id);
+                        const pokemonData = await fetch(`${ApiUrl}pokemon/${id}`)
+                            .then(response => response.json())
+                            .then(data => {
+                                return data;
+                            })
+                            .catch(error => console.log(error));
+                        console.log(pokemonData);
+                    } catch (error) {
+                        console.log("Erro:", error);
+                    }
+                    return "Pokemon selected using ID!";
+                };
+                const searchId = document.getElementById("search-by-id");
+                const inputId = document.getElementById("pokedex-id");
+                searchId.addEventListener("click", event => {
+                    event.preventDefault();
+                    const inputId = document.getElementById("pokedex-id");
+                    const pokemonId = parseInt(inputId.value);
+                    console.log(pokemonId);
+                    getPokeById(pokemonId).then(r => console.log(r));
+                })
                 break;
             case "poke-name":
                 showAndHide(1, sections);
+                const getPokeByName = async (name) => {
+                    try {
+                        console.log("Pokemon name: ", name);
+                        const pokemonData = await fetch(`${ApiUrl}pokemon/${name}`)
+                            .then(response => response.json())
+                            .then(data => {
+                                return data;
+                            })
+                            .catch(error => console.log(error))
+                        console.log(pokemonData);
+                    } catch (error){
+                        console.log(error);
+                    }
+                    return "Pokemon selected using name!";
+                };
+                const searchName = document.getElementById("search-by-name");
+                searchName.addEventListener("click", event => {
+                    event.preventDefault();
+                    const inputName = document.getElementById("pokemon-name");
+                    const pokemonName = inputName.value;
+                    console.log(pokemonName);
+                    getPokeByName(pokemonName).then(r => console.log(r));
+                })
                 break;
             case "radom-pokemon":
                 showAndHide(-1, sections);
                 const randomPokemon = async () => {
                     try {
                         const randomPokemon = randomId(1, 1025);
-                        console.log(randomPokemon);
-                        const pokemonData = await getPokeByID(randomPokemon);
+                        console.log("Pokemon ID: ", randomPokemon);
+                        const pokemonData = await fetch(`${ApiUrl}pokemon/${randomPokemon}`)
+                            .then(response => response.json())
+                            .then(data => {
+                                return data;
+                            })
+                            .catch(error => console.log("Error: ", error));
                         console.log(pokemonData);
-                        console.log(pokemonData.name);
                     } catch (error) {
                         console.log(error);
                     }
+                    return "Random pokemon selected!";
                 };
-                randomPokemon();
+                randomPokemon().then(r => console.log(r));
                 break;
             default:
                 console.log(value);
