@@ -55,15 +55,6 @@ body {
     padding-left: 20px;
     padding-right: 20px;
 }
-.image {
-    background-color: white;
-    border-radius: 50%;
-    width: 200px;
-    height: 200px;
-    margin-left: auto;
-    margin-right: auto;
-    margin-top: 40px;
-}
 .inputs {
     text-align: center;
     margin-left: auto;
@@ -79,4 +70,20 @@ body {
     margin-right: auto;
     height: 20px;
     width: 200px;
+}
+.image {
+    background-color: white;
+    border-radius: 50%;
+    width: 200px;
+    height: 200px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 40px;
+    text-align: center;
+}
+#poke-image {
+    margin-left: auto;
+    margin-right: auto;
+    width: 200px;
+    height: 200px;
 }

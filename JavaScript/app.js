@@ -1,6 +1,4 @@
 const ApiUrl = "https://pokeapi.co/api/v2/";
-// https://pokeapi.co/api/v2/type/ --> Para buscar dados de tipos
-// https://pokeapi.co/api/v2/pokemon/ --> Para buscar dados de pokemóns
 
 const radios = document.getElementsByName("radio");
 
@@ -30,8 +28,9 @@ radios.forEach((radio) => {
             }
             document.getElementById("height").textContent = pokemonInfo.height;
             document.getElementById("weight").textContent = pokemonInfo.weight;
-            document.getElementById("poke-image").src = pokemonInfo.images;
+            const image = document.getElementById("poke-image");
 
+            image.src = pokemonInfo.sprites.front_default;
         };
 
         console.log(event.target);
