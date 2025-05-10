@@ -5,6 +5,18 @@ body {
 .container {
     display: flex;
 }
+.title {
+    display: flex;
+    flex-direction: column;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    margin-top: 5px;
+}
+#pokemon-logo {
+    width: 250px;
+    height: 200px;
+}
 .first-half {
     display: flex;
     flex-direction: row;
@@ -27,10 +39,6 @@ body {
     margin-top: 10px;
     margin-left: 10px;
     margin-bottom: 50px;
-}
-#title {
-    margin-left: auto;
-    margin-right: auto;
 }
 .table {
     text-align: center;
@@ -56,8 +64,8 @@ body {
 .image {
     background-color: white;
     border-radius: 50%;
-    width: 200px;
-    height: 200px;
+    width: 250px;
+    height: 250px;
     margin-left: auto;
     margin-right: auto;
     margin-top: 40px;
@@ -66,6 +74,6 @@ body {
 #poke-image {
     margin-left: auto;
     margin-right: auto;
-    width: 200px;
-    height: 200px;
+    width: 250px;
+    height: 250px;
 }
