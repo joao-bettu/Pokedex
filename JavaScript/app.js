@@ -19,6 +19,20 @@ radios.forEach((radio) => {
                 }
             }
         }
+        const addDataToTable = (pokemonInfo) => {
+            document.getElementById("number").textContent = pokemonInfo.id;
+            document.getElementById("name").textContent = pokemonInfo.name;
+            document.getElementById("type-one").textContent = pokemonInfo.types[0].type.name;
+            if(pokemonInfo.types.length > 1){
+                document.getElementById("type-two").textContent = pokemonInfo.types[1].type.name;
+            } else{
+                document.getElementById("type-two").textContent = "";
+            }
+            document.getElementById("height").textContent = pokemonInfo.height;
+            document.getElementById("weight").textContent = pokemonInfo.weight;
+            document.getElementById("poke-image").src = pokemonInfo.images;
+
+        };
 
         console.log(event.target);
 
@@ -49,6 +63,7 @@ radios.forEach((radio) => {
                     getPokeById(pokemonId)
                         .then(response => {
                             console.log(response)
+                            addDataToTable(response);
                         });
                 })
                 break;
@@ -78,6 +93,7 @@ radios.forEach((radio) => {
                     getPokeByName(pokemonName)
                         .then(response => {
                             console.log(response);
+                            addDataToTable(response);
                         })
                 })
                 break;
@@ -101,6 +117,7 @@ radios.forEach((radio) => {
                 randomPokemon()
                     .then(response => {
                         console.log(response);
+                        addDataToTable(response);
                     });
                 break;
             default:
